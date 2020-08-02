@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $allProducts= Product::get();
+        $allProducts= Product::all();
         return view('products.index',['products'=>$allProducts]);
     }
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
         $request->validate([
             'name'=>'required',
             'price'=>'required',
-            'cover_img'=>'required|image'
+            // 'cover_img'=>'required|image'
 
         ]);
 
@@ -51,6 +51,8 @@ class ProductController extends Controller
         $product->category=$request->input('category');
         $product->stock=$request->input('stock');
         $product->sale_price=$request->input('sale_price');
+        $product->regular_price=$request->input('regular_price');
+
             // check if file is present
 
         if($request->has('cover_image')){

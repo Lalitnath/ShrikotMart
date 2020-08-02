@@ -5,7 +5,7 @@
 
 
     <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
-
+        @csrf
         <div class="form-group">
             <label for="">Product Name</label>
             <input type="text" name="name" id="" class="form-control">
